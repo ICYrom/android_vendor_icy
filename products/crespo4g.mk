@@ -21,7 +21,6 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/icy/overlay/crespo4g
 
 # Copy crespo4g specific prebuilt files
 PRODUCT_COPY_FILES +=  \
-    vendor/icy/proprietary/tuna/app/MiFileExplorer_2.3.7.23_new_build_root_option_fixed.apk \
     vendor/icy/proprietary/crespo/app/Thinkfree.apk:system/app/Thinkfree.apk \
     vendor/icy/proprietary/crespo/media/bootanimation.zip:system/media/bootanimation.zip \
     vendor/icy/proprietary/tuna/media/audio/notifications/Nexus.mp3:system/media/audio/notifications/Nexus.mp3 \
