@@ -1,0 +1,4 @@
+#!/system/bin/sh
+
+/system/xbin/busybox mount -o remount,noatime,data=writeback,barrier=0,nobh /data
+/system/xbin/busybox mount -o remount,noatime,data=writeback,barrier=0,nobh /system

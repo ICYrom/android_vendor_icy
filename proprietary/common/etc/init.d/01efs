@@ -1,0 +1,13 @@
+#!/system/bin/sh
+# EFS auto backup script for Samsung Galaxy Nexus
+# By @paulobrien - http://GalaxyNexus.MoDaCo.com
+
+if [ ! -f /data/media/efs.autobackup.tar.gz ];
+then
+	mkdir -p /data/local/efs
+	busybox mount -o ro /dev/block/platform/omap/omap_hsmmc.0/by-name/efs /data/local/efs
+	cd /data/local/efs
+	tar zcvf /data/media/efs.autobackup.tar.gz *
+	cd /
+	umount /data/local/efs
+fi

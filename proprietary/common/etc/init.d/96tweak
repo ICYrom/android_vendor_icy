@@ -1,0 +1,29 @@
+#!/system/bin/sh
+
+#flags every mounted partition as non rotational
+
+MTD=`ls -d /sys/block/mtd*`;
+LOOP=`ls -d /sys/block/loop*`;
+RAM=`ls -d /sys/block/ram*`;
+MMC=`ls -d /sys/block/mmc*`;
+
+for j in $DM $MTD $LOOP $RAM;
+do
+echo 0 > $j/queue/rotational;
+done
+
+#remounting the file systems with noatime and nodiratime flags to save battery and CPU cycles
+
+for k in $(busybox mount | grep relatime | cut -d " " -f3)
+do
+sync
+busybox mount -o remount,noatime,nobh,nodiratime,noauto_da_alloc $k
+done
+
+mount -o remount,noauto_da_alloc,noatime,nobh,nodiratime /data /data
+
+for i in \
+`find /data -iname "*.db"`
+do \
+sqlite3 $i 'VACUUM;'; 
+done
