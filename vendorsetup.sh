@@ -1,0 +1,8 @@
+add_lunch_combo icy_crespo-user
+add_lunch_combo icy_crespo4g-user
+add_lunch_combo icy_emulator-eng
+add_lunch_combo icy_maguro-user
+add_lunch_combo icy_stingray-user
+add_lunch_combo icy_toro-user
+add_lunch_combo icy_wingray-user
+
